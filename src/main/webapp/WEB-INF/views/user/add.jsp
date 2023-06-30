@@ -6,15 +6,15 @@
 </head>
 <body>
 
-<h3>Add User</h3>
+<h3>Dodaj użytkownika</h3>
 
 <form:form method="post" modelAttribute="user">
 
     <div>User name/login: <form:input path="name"/><form:errors path="name"/></div><br>
     <div>E-mail: <form:input path="email" type="email"/><form:errors path="email"/></div><br>
-    <div>Password: <form:input path="lastName"/><form:errors path="lastName"/></div><br>
+    <div>Password: <form:input path="password"/><form:errors path="password"/></div><br>
 
-    <input type="submit" value="Add author">
+    <input type="submit" value="Dodaj użytkownika">
 </form:form>
 
 </body>

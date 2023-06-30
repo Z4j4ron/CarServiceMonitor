@@ -1,4 +1,4 @@
-package pl.llasso.entities;
+package pl.llasso.carservicemonitor.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -11,12 +11,14 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class User {
     @Id
-    @Setter(AccessLevel.NONE)
+//    @Setter(AccessLevel.NONE)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String name;
+//    @Setter(AccessLevel.NONE)
     private String password;
     private String email;
     @ManyToMany

@@ -1,9 +1,7 @@
-package pl.llasso.entities;
+package pl.llasso.carservicemonitor.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -12,19 +10,19 @@ import java.util.List;
 @Entity
 @Setter
 @Getter
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class Vehicle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String brand;
-    private String model;
-    private LocalDateTime productionYear;
-    private Integer engine;
+    private String version;
+    private Integer productionYear;
+    private Integer engineCapacity;
     private Long mileage;
     private LocalDateTime lastService;
     @ManyToMany(mappedBy = "vehicles")
     private List<User> users = new ArrayList<>();
-
-
 }
