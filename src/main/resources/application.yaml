@@ -3,6 +3,10 @@ spring:
     url: jdbc:mysql://localhost:3306/onl_jee_w_20?serverTimezone=UTC
     username: root
     password: coderslab
+#  security:
+#    user:
+#      name: admin
+#      password: admin
   jpa:
     hibernate:
       ddl-auto: update

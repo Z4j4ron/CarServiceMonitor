@@ -21,8 +21,9 @@ public class Vehicle {
     private String version;
     private Integer productionYear;
     private Integer engineCapacity;
+
     private Long mileage;
-    private LocalDateTime lastService;
+    private String lastService;
     @ManyToMany(mappedBy = "vehicles")
     private List<User> users = new ArrayList<>();
 }

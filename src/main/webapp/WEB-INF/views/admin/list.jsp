@@ -27,7 +27,7 @@
             <td>${vehicle.lastService}</td>
             <td><a href="form">Dodaj kolejny pojazd</a></td>
             <td><a href="edit?id=${vehicle.id}">Edit</a></td>
-            <td><a href="remove?id=${vehicle.id}" onclick="return confirm('Are you sure?')">Remove</a></td>
+            <td><a href="remove?id=${user.id}" onclick="return confirm('Are you sure?')">Remove</a></td>
         </tr>
     </c:forEach>
 </table>

@@ -6,6 +6,7 @@
 </head>
 <body>
     <h1>Użytkownicy</h1>
+    <h2><a href="form">Dodaj kolejnego użytkownika</a></h2><br>
 <table>
     <tr>
         <th>Lp.</th>
@@ -17,9 +18,8 @@
             <td>${user.id}</td>
             <td>${user.name}</td>
             <td>${user.email}</td>
-            <td><a href="add.jsp">Dodaj kolejnego użytkownika</a> </td>
-<%--            <td><a href="edit?id=${user.id}">Edit</a></td>--%>
-<%--            <td><a href="remove?id=${user.id}" onclick="return confirm('Are you sure?')">Remove</a></td>--%>
+            <td><a href="edit?id=${user.id}">Edit</a></td>
+            <td><a href="remove?id=${user.id}" onclick="return confirm('Are you sure?')">Remove</a></td>
         </tr>
     </c:forEach>
 </table>

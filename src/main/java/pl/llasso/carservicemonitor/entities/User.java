@@ -24,4 +24,5 @@ public class User {
     @ManyToMany
     private List<Vehicle> vehicles = new ArrayList<>();
 
+
 }

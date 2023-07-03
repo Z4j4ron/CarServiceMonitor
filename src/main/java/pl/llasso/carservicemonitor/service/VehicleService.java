@@ -1,36 +1,34 @@
 package pl.llasso.carservicemonitor.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.llasso.carservicemonitor.dao.VehicleDao;
-import pl.llasso.carservicemonitor.entities.User;
 import pl.llasso.carservicemonitor.entities.Vehicle;
+import pl.llasso.carservicemonitor.repository.VehicleRepository;
 
 import java.util.List;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class VehicleService {
-    private final VehicleDao vehicleDao;
+    private final VehicleRepository vehicleRepository;
 
-    public VehicleService(VehicleDao vehicleDao) {
-        this.vehicleDao = vehicleDao;
-    }
 
     public void save(Vehicle vehicle){
-        vehicleDao.save(vehicle);
+        vehicleRepository.save(vehicle);
     }
     public Vehicle findById(Long id){
-        return vehicleDao.findById(id);
+        return vehicleRepository.findById(id).get();
     }
     public List<Vehicle> findAll(){
-        return vehicleDao.findALl();
+        return vehicleRepository.findAll();
     }
     public void update(Vehicle vehicle){
-        vehicleDao.update(vehicle);
+        vehicleRepository.save(vehicle);
     }
     public void deleteById(Long id){
-        vehicleDao.deleteById(id);
+        vehicleRepository.deleteById(id);
     }
 
 }
