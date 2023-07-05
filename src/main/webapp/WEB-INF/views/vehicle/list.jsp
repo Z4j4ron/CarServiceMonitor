@@ -2,7 +2,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>All users</title>
+    <title>All vehicles</title>
 </head>
 <body>
 <h1>Pojazdy</h1>
@@ -28,6 +28,7 @@
             <td><a href="form">Dodaj kolejny pojazd</a></td>
             <td><a href="edit?id=${vehicle.id}">Edit</a></td>
             <td><a href="remove?id=${vehicle.id}" onclick="return confirm('Are you sure?')">Remove</a></td>
+            <td><a href="http://localhost:8080/check/list?id=${vehicle.id}">Lista Serwisów Pojazdu</a></td>
         </tr>
     </c:forEach>
 </table>

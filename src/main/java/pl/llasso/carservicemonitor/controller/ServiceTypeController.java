@@ -1,13 +1,11 @@
 package pl.llasso.carservicemonitor.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import pl.llasso.carservicemonitor.entities.ServiceType;
 import pl.llasso.carservicemonitor.service.ServiceTypeService;
 
@@ -23,8 +21,8 @@ public class ServiceTypeController {
         return "service/add";
     }
 
-    @RequestMapping(path = "/service/form")
-    String processAddServiceTypeForm(ServiceType serviceType, BindingResult bindingResult) {
+    @PostMapping(path = "/service/form")
+    String processAddServiceTypeForm(@Valid ServiceType serviceType, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "service/add";
         }

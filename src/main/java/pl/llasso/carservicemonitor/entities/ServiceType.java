@@ -18,4 +18,9 @@ public class ServiceType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String kind;
+
+    @Override
+    public String toString() {
+        return kind;
+    }
 }

@@ -3,6 +3,7 @@ package pl.llasso.carservicemonitor.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.llasso.carservicemonitor.entities.CheckVehicle;
+import pl.llasso.carservicemonitor.entities.Vehicle;
 import pl.llasso.carservicemonitor.repository.CheckVehicleRepository;
 
 import java.util.List;
@@ -24,4 +25,7 @@ public class CheckVehicleService {
         checkVehicleRepository.save(checkVehicle);
     }
 
+    public List<CheckVehicle> findCheckVehicleByVehicleId(Long id){
+        return checkVehicleRepository.findCheckVehicleByVehicleId(id);
+    }
 }

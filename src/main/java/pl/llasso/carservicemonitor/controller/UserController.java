@@ -1,5 +1,6 @@
 package pl.llasso.carservicemonitor.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,8 +25,14 @@ public class UserController {
         return "user/add";
     }
 
-    @RequestMapping(path = "/user/form")
-    String processAddUserForm(User user, BindingResult bindingResult) {
+//    @GetMapping(path = "/user/form")
+//    String showAddUserForm(Model model){
+//        model.addAttribute("user", new User());
+//        return "user/add";
+//    }
+
+    @PostMapping(path = "/user/form")
+    String processAddUserForm(@Valid User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "user/add";
         }

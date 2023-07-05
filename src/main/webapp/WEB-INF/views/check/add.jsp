@@ -10,10 +10,11 @@
 
 <form:form method="post" modelAttribute="check">
 
-    <div>Rodzaj zdarzenia: <form:select path="ServiceType" items="${services}" itemLabel="kind" itemValue="id"/><form:errors path="ServiceType"/></div><br>
-    <div>Pojazd: <form:select path="Vehicle.id" items="${vehicles}" itemLabel="brand" itemValue="id"/><form:errors path="Vehicle"/></div><br>
+    <div>Pojazd: <form:select path="vehicle.id" items="${vehicles}" itemLabel="brand" itemValue="id"/><form:errors path="vehicle"/></div><br>
+    <div>Rodzaj zdarzenia: <form:select path="serviceType.id" items="${services}" itemLabel="kind" itemValue="id" /><form:errors path="serviceType"/></div><br>
     <div>Przebieg: <form:input path="mileage"/><form:errors path="mileage"/></div><br>
-    <div>Password: <form:input path="price"/><form:errors path="price"/></div><br>
+    <div>Data Serwisu: <form:input path="serviceDate" placeholder="dd/mm/rrrr"/><form:errors path="serviceDate"/></div><br>
+    <div>Koszt Serwisu: <form:input path="price"/><form:errors path="price"/></div><br>
 
     <input type="submit" value="Dodaj wizytę w warsztacie">
 </form:form>

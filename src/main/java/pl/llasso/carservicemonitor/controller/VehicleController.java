@@ -1,5 +1,6 @@
 package pl.llasso.carservicemonitor.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +24,7 @@ public class VehicleController {
     }
 
     @PostMapping(path = "/vehicle/form")
-    String processAddVehicleForm(Vehicle vehicle, BindingResult bindingResult) {
+    String processAddVehicleForm(@Valid Vehicle vehicle, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "vehicle/add";
         }
@@ -39,6 +40,15 @@ public class VehicleController {
 
         return "vehicle/list";
     }
+
+    // Przejśccie do widoku serwisów dnego auta
+//    @GetMapping(path = "/vehicle/list")
+//    String showVehicleChecksList(Model model){
+//        List<Vehicle> vehicles = vehicleService.findAll();
+//        model.addAttribute("vehicles", vehicles);
+//
+//        return "redirect:http://localhost:8080/check/list";
+//    }
 
     @GetMapping(path = "/vehicle/edit")
     String showVehicleEditForm(@RequestParam Long id, Model model){

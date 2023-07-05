@@ -1,6 +1,9 @@
 package pl.llasso.carservicemonitor.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
 import lombok.*;
 
 import java.util.List;
@@ -16,10 +19,21 @@ public class CheckVehicle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany
-    private List<ServiceType> serviceType;
-    @ManyToMany
-    private List<Vehicle> vehicle;
+//    @OneToMany
+//    private List<ServiceType> serviceType;
+//    @ManyToMany
+//    private List<Vehicle> vehicle;
+    @ManyToOne
+    private ServiceType serviceType;
+    @ManyToOne
+    private Vehicle vehicle;
+    @NotNull
+    @Min(value = 1)
     private Long mileage;
-    private Long price;
+    @NotNull
+//    @Past(message = "Podana data musi być datą przeszłą")
+    private String serviceDate;
+    @NotNull
+    @Min(value = 0)
+    private Double price;
 }

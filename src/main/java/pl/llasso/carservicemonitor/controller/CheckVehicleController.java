@@ -1,12 +1,11 @@
 package pl.llasso.carservicemonitor.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.llasso.carservicemonitor.entities.CheckVehicle;
 import pl.llasso.carservicemonitor.entities.ServiceType;
 import pl.llasso.carservicemonitor.entities.Vehicle;
@@ -25,23 +24,25 @@ public class CheckVehicleController {
     private final ServiceTypeService serviceTypeService;
 
     @GetMapping(path = "/check/form")
-    String showAddCheckVehicleForm(@ModelAttribute("check") ServiceType serviceType){
+    String showAddCheckVehicleForm(@ModelAttribute("check") CheckVehicle checkVehicle){
         return "check/add";
     }
 
-    @RequestMapping(path = "/check/form")
-    String processAddCheckVehicleForm(CheckVehicle checkVehicle, BindingResult bindingResult) {
+    @PostMapping(path = "/check/form")
+    String processAddCheckVehicleForm(@Valid CheckVehicle checkVehicle, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "check/add";
         }
         checkVehicleService.save(checkVehicle);
 
-        return "redirect:/check/list";
+        return "redirect:http://localhost:8080/vehicle/list";
     }
 
     @GetMapping(path = "/check/list")
-    String showCheckVehicleList(Model model){
-        List<CheckVehicle> checks = checkVehicleService.findAll();
+    String showCheckVehicleList(Model model, @RequestParam Long id){
+        Vehicle vehicle = vehicleService.findById(id);
+        model.addAttribute("vehicle", vehicle);
+        List<CheckVehicle> checks = checkVehicleService.findCheckVehicleByVehicleId(id);
         model.addAttribute("checks", checks);
 
         return "check/list";
@@ -56,4 +57,5 @@ public class CheckVehicleController {
     Collection<Vehicle> vehicles(){
         return vehicleService.findAll();
     }
+
 }
