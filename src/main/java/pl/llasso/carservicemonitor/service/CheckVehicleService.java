@@ -25,6 +25,10 @@ public class CheckVehicleService {
         checkVehicleRepository.save(checkVehicle);
     }
 
+    public void deleteById(Long id){
+        checkVehicleRepository.deleteById(id);
+    }
+
     public List<CheckVehicle> findCheckVehicleByVehicleId(Long id){
         return checkVehicleRepository.findCheckVehicleByVehicleId(id);
     }

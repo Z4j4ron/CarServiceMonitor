@@ -25,13 +25,15 @@
             <td>${vehicle.engineCapacity}</td>
             <td>${vehicle.mileage}</td>
             <td>${vehicle.lastService}</td>
-            <td><a href="form">Dodaj kolejny pojazd</a></td>
             <td><a href="edit?id=${vehicle.id}">Edit</a></td>
-            <td><a href="remove?id=${vehicle.id}" onclick="return confirm('Are you sure?')">Remove</a></td>
+            <td><a href="remove?id=${vehicle.id}" onclick="return confirm('Are you sure?')">Usuń pojazd</a></td>
             <td><a href="http://localhost:8080/check/list?id=${vehicle.id}">Lista Serwisów Pojazdu</a></td>
         </tr>
     </c:forEach>
 </table>
+<a href="form">Dodaj kolejny pojazd</a><br>
+<a href="http://localhost:8080/service/form">Dodaj rodzaj serwisu</a><br>
+<a href="http://localhost:8080/check/form">Dodaj przegląd pojazdu</a><br>
 
 </body>
 </html>

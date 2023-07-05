@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.llasso.carservicemonitor.entities.CheckVehicle;
 import pl.llasso.carservicemonitor.entities.ServiceType;
 import pl.llasso.carservicemonitor.entities.Vehicle;
+import pl.llasso.carservicemonitor.event.Event;
 import pl.llasso.carservicemonitor.service.CheckVehicleService;
 import pl.llasso.carservicemonitor.service.ServiceTypeService;
 import pl.llasso.carservicemonitor.service.VehicleService;
@@ -22,6 +23,7 @@ public class CheckVehicleController {
     private final CheckVehicleService checkVehicleService;
     private final VehicleService vehicleService;
     private final ServiceTypeService serviceTypeService;
+    private final Event event;
 
     @GetMapping(path = "/check/form")
     String showAddCheckVehicleForm(@ModelAttribute("check") CheckVehicle checkVehicle){
@@ -44,9 +46,14 @@ public class CheckVehicleController {
         model.addAttribute("vehicle", vehicle);
         List<CheckVehicle> checks = checkVehicleService.findCheckVehicleByVehicleId(id);
         model.addAttribute("checks", checks);
+        Double sum = event.sumAllCosts(id);
+        model.addAttribute("sum",sum);
 
         return "check/list";
     }
+
+    @GetMapping(path = "/check/remove")
+    String deleteById(@RequestParam Long id){checkVehicleService.deleteById(id); return "redirect:/check/list";}
 
     @ModelAttribute("services")
     Collection<ServiceType> services(){
@@ -57,5 +64,4 @@ public class CheckVehicleController {
     Collection<Vehicle> vehicles(){
         return vehicleService.findAll();
     }
-
 }

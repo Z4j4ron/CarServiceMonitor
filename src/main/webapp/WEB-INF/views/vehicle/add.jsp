@@ -19,6 +19,6 @@
 
     <input type="submit" value="Dodaj Pojazd">
 </form:form>
-
+<a href="list">Wróć do listy pojazdów</a>
 </body>
 </html>

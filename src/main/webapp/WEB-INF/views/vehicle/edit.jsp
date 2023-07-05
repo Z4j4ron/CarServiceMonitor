@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<h3>Edycja Pojazdu</h3>
+<h3>Edytuj Pojazd</h3>
 
 <form:form method="post" modelAttribute="vehicle">
 
@@ -20,6 +20,8 @@
     <form:hidden path="id"/>
     <input type="submit" value="Zapisz">
 </form:form>
+
+<a href="list">Wróć do listy pojazdów</a>
 
 </body>
 </html>
