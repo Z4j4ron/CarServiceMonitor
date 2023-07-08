@@ -5,11 +5,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import pl.llasso.carservicemonitor.entities.CheckVehicle;
 import pl.llasso.carservicemonitor.entities.ServiceType;
 import pl.llasso.carservicemonitor.entities.Vehicle;
-import pl.llasso.carservicemonitor.event.Event;
 import pl.llasso.carservicemonitor.service.CheckVehicleService;
 import pl.llasso.carservicemonitor.service.ServiceTypeService;
 import pl.llasso.carservicemonitor.service.VehicleService;
@@ -23,7 +25,6 @@ public class CheckVehicleController {
     private final CheckVehicleService checkVehicleService;
     private final VehicleService vehicleService;
     private final ServiceTypeService serviceTypeService;
-    private final Event event;
 
     @GetMapping(path = "/check/form")
     String showAddCheckVehicleForm(@ModelAttribute("check") CheckVehicle checkVehicle){
@@ -46,7 +47,7 @@ public class CheckVehicleController {
         model.addAttribute("vehicle", vehicle);
         List<CheckVehicle> checks = checkVehicleService.findCheckVehicleByVehicleId(id);
         model.addAttribute("checks", checks);
-        Double sum = event.sumAllCosts(id);
+        Double sum = checkVehicleService.sumAllCosts(id);
         model.addAttribute("sum",sum);
 
         return "check/list";

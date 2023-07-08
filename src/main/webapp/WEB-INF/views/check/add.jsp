@@ -21,7 +21,8 @@
 
 <h2><a href="http://localhost:8080/service/form">Dodaj nowy rodzaj serwisu</a></h2><br>
 <h2><a href="http://localhost:8080/vehicle/form">Dodaj nowy pojazd</a></h2><br>
-<h2><a href="http://localhost:8080/vehicle/list">Lista pojazdów</a></h2><br>
+<h2><a href="http://localhost:8080/vehicle/list">Lista Pojazdów</a></h2><br>
+<h2><a href="http://localhost:8080/user/list">Lista użytkowników</a></h2><br>
 
 </body>
 </html>

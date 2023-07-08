@@ -34,6 +34,7 @@
 <a href="form">Dodaj kolejny pojazd</a><br>
 <a href="http://localhost:8080/service/form">Dodaj rodzaj serwisu</a><br>
 <a href="http://localhost:8080/check/form">Dodaj przegląd pojazdu</a><br>
+<h2><a href="http://localhost:8080/user/list">Lista użytkowników</a></h2><br>
 
 </body>
 </html>

@@ -16,7 +16,10 @@
     <div>Password: <form:input path="password" type="password"/><form:errors path="password"/></div>
     <form:hidden path="id"/>
     <input type="submit" value="Zapisz">
+    <h3><a href="list">Lista Użytkowników</a></h3>
 </form:form>
+
+
 
 </body>
 </html>

@@ -32,4 +32,12 @@ public class CheckVehicleService {
     public List<CheckVehicle> findCheckVehicleByVehicleId(Long id){
         return checkVehicleRepository.findCheckVehicleByVehicleId(id);
     }
+    public Double sumAllCosts(Long id){
+        List<CheckVehicle> checks = checkVehicleRepository.findCheckVehicleByVehicleId(id);
+        Double sum = 0.;
+        for (CheckVehicle p: checks) {
+            sum = sum + p.getPrice();
+        }
+        return sum;
+    }
 }

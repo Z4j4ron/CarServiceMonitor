@@ -7,6 +7,7 @@
 <body>
 
 <h3>Dodaj użytkownika</h3>
+<h3><a href="http://localhost:8080/vehicle/list">Wróć do listy pojazdów</a></h3><br>
 
 <form:form method="post" modelAttribute="user">
 
